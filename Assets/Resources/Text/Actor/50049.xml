@@ -1,0 +1,67 @@
+﻿<Actor Id="50049" Name="蒂娅">
+
+
+  <Skill Id="5004908"  Name="普攻1"  StateTime="1.166"  CD="0"  Pos="0"  CastDistance="3.0">
+    <Sequence>
+      <Parallel>
+          <Anim   AnimName="attack_01"  Sound="1001001"/>
+     </Parallel>
+      <Parallel>
+          <Anim   AnimName="attack_02"  Sound="1001001"/>
+          <Effect Id="61044" Delay="0.100" LastTime="0.200"  Bind="3"  Type="1"/>
+     </Parallel>
+      <Parallel>
+          <Anim   AnimName="attack_03"  Sound="1001001"/>
+          <Effect Id="61045" Delay="0.233" LastTime="0.200"  Bind="3"  Type="1"/>
+     </Parallel>
+   </Sequence>
+ </Skill>
+  
+
+  <Skill Id="5004904"   Name="普攻2"   StateTime="1.167"  CD="0"  Pos="1"  CastDistance="3.0">
+    <Parallel>
+      <Anim   AnimName="attack_04"  Sound="1001001"/>
+      <Effect Id="61046" Delay="0.567" LastTime="0.300"  Bind="3"  Type="1"/>
+      <Effect Id="61047" Delay="0.567" LastTime="0.300"  Bind="3"  Type="1"/>
+   </Parallel>
+ </Skill>
+
+  <Skill Id="5004905"   Name="惩戒姿态"  StateTime="1.766" CD="6"  Pos="2">
+    <Parallel>
+      <Sequence>
+        <Anim   AnimName="skill_chengjiezitai_01"  Sound="1001001"/>
+        <Anim   AnimName="skill_chengjiezitai_02"  Sound="1001001"/>
+        <Parallel>
+          <Anim   AnimName="skill_chengjiezitai_03"  Sound="1001001"/>
+          <Effect Id="61017" LastTime="1.30"  Type="1"  Bind="3"   Sound=""/>
+        </Parallel>
+        <Anim   AnimName="skill_chengjiezitai_04"  Sound="1001001"/>
+      </Sequence>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5004906"   Name="十字斩"   StateTime="2.666" CD="4"  CastDistance="4.0"  Pos="3">
+      <Sequence>
+        <Anim   AnimName="skill_shizizhan_01"  Sound="1001001"/>
+        <Anim   AnimName="skill_shizizhan_02"  Sound="1001001"/>
+        <Parallel>
+             <Anim   AnimName="skill_shizizhan_03"  Sound="1001001"/>
+             <Effect Id="64030" LastTime="2"  Type="1"  Bind="3"   Sound=""/>
+        </Parallel>
+        <Anim   AnimName="skill_shizizhan_04"  Sound="1001001"/>      
+      </Sequence>
+  </Skill>
+
+  <Skill Id="5004907"   Name="圣光护体" StateTime="1.066"   CD="20"  Pos="4">
+    <Parallel>
+      <Clone>
+          <Effect Id="61042" LastTime="10"  Bind="4"  Type="1"   Sound=""/>
+     </Clone>
+      <Sequence>
+        <Anim   AnimName="skill_shengguanghuti_01"  Sound="1001001"/>
+        <Anim   AnimName="skill_shengguanghuti_02"  Sound="1001001"/>
+      </Sequence>
+    </Parallel>
+  </Skill>
+  
+  </Actor>

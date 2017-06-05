@@ -1,0 +1,47 @@
+﻿<Actor Id="50072"  Name="">
+
+  <Skill Id="5005901"  Name="普攻1"   StateTime="0.967"   CD="0"  Pos="0">
+    <Sequence>
+      <Anim   AnimName="attack_01"  Sound="1001001"/>
+      <Clone>
+        <Effect Id="62023" LastTime="3.000"  Bind="1"  Fly="2"  FlySpeed="25" Type="1"/>
+      </Clone>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005902"  Name="普攻2"   StateTime="2.667"   CD="0"  Pos="1">
+    <Parallel>
+      <Anim   AnimName="attack_02"  Sound="1001001"/>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5005903"  Name="出现"    StateTime="1.800"   CD="0"  Pos="2">
+    <Parallel>
+      <Anim   AnimName="appear"  Sound="1001001"/>
+      <Effect Id="61066" LastTime="0.400" Bind="3"  Type="1"  Sound=""/>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5005904"  Name="消失"    StateTime="1.300"   CD="0"  Pos="3">
+    <Parallel>
+      <Anim   AnimName="disappear"  Sound="1001001"/>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5005905" Name="喷射毒雾"  StateTime="4.567"   CD="6"  Pos="4">
+    <Sequence>
+      <Parallel>
+        <Anim   AnimName="skill_pensheduwu_01"  Sound="1001001"/>
+        <Effect Id="64047" LastTime="2.500"  Bind="2"  Type="1"/>
+      </Parallel>
+      <Anim   AnimName="skill_pensheduwu_02"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005906" Name="沙尘地刺"  StateTime="2.400"   CD="6"  Pos="5">
+    <Sequence>
+      <Anim   AnimName="skill_shachendici_01"  Sound="1001001"/>
+      <Anim   AnimName="skill_shachendici_02"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+</Actor>

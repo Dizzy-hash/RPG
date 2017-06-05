@@ -1,0 +1,9 @@
+﻿<Actor Id="50026" Name="炮塔5">
+
+  <Skill Id="5002601"  Name="普攻"     StateTime="1.000"  CD="3"  CastDistance="25"   Pos="0">
+    <Parallel>
+         <Anim   AnimName="attack_01"  Sound="1001001"/>
+    </Parallel>
+  </Skill>
+
+</Actor>

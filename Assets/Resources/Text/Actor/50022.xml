@@ -1,0 +1,20 @@
+﻿<Actor Id="50022" Name="炮塔1">
+
+  <Skill Id="5002201"  Name="普攻"     StateTime="1.800"  CD="3"  CastDistance="25"  Pos="0">
+    <Parallel>
+         <Anim   AnimName="attack_01"  Sound="1001001"/>
+         <Sequence>
+             <Wait Seconds="1.5"/>
+             <Clone>
+                    <Parallel>
+                        <Effect Id="62017" LastTime="3"  FlySpeed="20"  Dead="1"  Bind="1"  Fly="2"  Sound=""  Offset="(0,0.5,0)" JudgeName="Owner"/>
+                        <Judge  Region="1"  Affect="2"  Radius="0.5"  MaxCount="1"  JudgeName="Owner"  LifeTime="3">
+                             <Hurt    Damage="1"  Percent="3.80"/>
+                       </Judge>
+                   </Parallel>
+             </Clone>
+         </Sequence>
+    </Parallel>
+  </Skill>
+
+</Actor>

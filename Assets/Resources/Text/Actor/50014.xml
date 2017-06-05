@@ -1,0 +1,15 @@
+﻿<Actor Id="50014" Name="塔罗斯士兵">
+
+  <Skill Id="5001401"  Name="普攻"     StateTime="1.667"  CD="0"  CastDistance="2.5" Pos="0">
+       <Parallel>
+           <Anim   AnimName="attack_01"  Sound="1001001"/>
+      </Parallel>
+ </Skill>
+
+  <Skill Id="5001402"  Name="幻影突刺"  StateTime="1.667"  CD="2"  CastDistance="2.5" Pos="1">
+       <Sequence>
+           <Anim   AnimName="skill_huanyingtuci_01"  Sound="1001001"/>
+      </Sequence>
+ </Skill>
+
+</Actor>

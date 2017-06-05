@@ -1,0 +1,9 @@
+﻿<Actor Id="50012" Name="农夫">
+  
+  <Skill Id="5001201"  Name="普攻"  StateTime="1.667"  CD="4"  CastDistance="2.5" Pos="0">
+      <Sequence>
+          <Anim   AnimName="attack_01"  Sound="1001001"/>
+     </Sequence>
+ </Skill>
+  
+</Actor>

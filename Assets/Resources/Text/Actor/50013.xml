@@ -1,0 +1,17 @@
+﻿<Actor Id="50013" Name="塔罗斯队长">
+
+  <Skill Id="5001301"  Name="普攻"    StateTime="1.333"  CD="3"  CastDistance="3" Pos="0">
+     <Parallel>
+         <Anim   AnimName="attack_01"  Sound="1001001"/>
+         <Effect Id="61074" LastTime="1.333"  Bind="3"  Type="1"/> 
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5001302"  Name="邪恶力量" StateTime="1.333"  CD="5"  CastDistance="5" Pos="1">
+     <Parallel>
+         <Anim   AnimName="skill_xieeliliang_01"  Sound="1001001"/>
+         <Effect Id="64024" Delay="0.500" LastTime="0.833"  Bind="3"  Type="1"/>
+    </Parallel>
+ </Skill>
+  
+</Actor>

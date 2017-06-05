@@ -1,0 +1,16 @@
+﻿<Actor Id="50010" Name="箭塔1">
+
+  <Skill Id="5001001"  Name="普攻"  StateTime="1"  CD="1"  CastDistance="25" Pos="0">
+    <Sequence>   
+         <Clone>
+              <Parallel>
+                  <Effect Id="62027" LastTime="3"  Dead="1"  FlySpeed="20"  Bind="1"  Fly="2"  Sound=""  JudgeName="Owner"/>
+                  <Judge  Region="1"  Affect="2"  Radius="0.5"  MaxCount="1"  JudgeName="Owner"  LifeTime="3">
+                      <Hurt    Damage="1"  Percent="3.80"/>
+                 </Judge>
+             </Parallel>
+        </Clone>
+   </Sequence>
+ </Skill>
+
+</Actor>
