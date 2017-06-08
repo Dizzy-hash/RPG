@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public Transform followTarget;
     public float     followDistance = 10;
-    public float     followHeight = 5;
+    public float     followHeight = 15;
     public float     followRotationDamping = 5;
     public float     followHeightDamping = 5;
     public Vector3   followOffset;
