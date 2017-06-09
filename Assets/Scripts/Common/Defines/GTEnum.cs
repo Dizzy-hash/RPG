@@ -113,14 +113,15 @@ public enum ERuneType
 //场景类型
 public enum ESceneType
 {
-    TYPE_LOAD   =-1,
     TYPE_INIT   = 0,
-    TYPE_LOGIN  = 1,
-    TYPE_ROLE   = 2,
-    TYPE_CITY   = 3,
-    TYPE_PVE    = 4,
-    TYPE_WORLD  = 5,
-    TYPE_AREA   = 6,
+    TYPE_VERSION = 1,
+    TYPE_LOAD = 2,
+    TYPE_LOGIN  = 3,
+    TYPE_ROLE   = 4,
+    TYPE_CITY   = 5,
+    TYPE_PVE    = 6,
+    TYPE_WORLD  = 7,
+    TYPE_AREA   = 8,
 }
 
 

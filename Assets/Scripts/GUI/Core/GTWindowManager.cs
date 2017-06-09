@@ -212,7 +212,7 @@ public class GTWindowManager : GTSingleton<GTWindowManager>
         return window;
     }
 
-    public void     CloseWindow(EWindowID windowID)
+    public void CloseWindow(EWindowID windowID)
     {
         GTWindow window = mAllWindows[windowID];
         if (window == null) return;

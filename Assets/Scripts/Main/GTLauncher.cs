@@ -11,15 +11,15 @@ public class GTLauncher : MonoBehaviour
 {
     public static GTLauncher  Instance;
 
-    [HideInInspector] public int           LAST_CITY_ID = GTSceneKey.SCENE_CITY_3;
-    [HideInInspector] public bool          ShowFPS;
-    [HideInInspector] public bool          TestScene;
-    [HideInInspector] public string        CurrSceneName;
-    [HideInInspector] public ESceneType    CurrSceneType;
-    [HideInInspector] public ESceneType    NextSceneType;
-    [HideInInspector] public Int32         TestActorID;
-    [HideInInspector] public bool          MusicDisable = true;
-    [HideInInspector] public bool          UseGuide = true;
+    public int           LAST_CITY_ID = GTSceneKey.SCENE_CITY_1;
+    public bool          ShowFPS;
+    public bool          TestScene;
+    public string        CurrSceneName;
+    public ESceneType    CurrSceneType;
+    public ESceneType    NextSceneType;
+    public Int32         TestActorID;
+    public bool          MusicDisable = true;
+    public bool          UseGuide = true;
 
     private IStateMachine<GTLauncher, ESceneType> mStateMachine;
 
@@ -72,6 +72,7 @@ public class GTLauncher : MonoBehaviour
     {
         this.mStateMachine = new IStateMachine<GTLauncher, ESceneType>(this);
         this.mStateMachine.AddState(ESceneType.TYPE_INIT,  new SceneInit());
+        this.mStateMachine.AddState(ESceneType.TYPE_VERSION, new SceneVersion());
         this.mStateMachine.AddState(ESceneType.TYPE_LOGIN, new SceneLogin());
         this.mStateMachine.AddState(ESceneType.TYPE_LOAD,  new SceneLoading());
         this.mStateMachine.AddState(ESceneType.TYPE_ROLE,  new SceneRole());

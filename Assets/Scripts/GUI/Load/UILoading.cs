@@ -17,14 +17,16 @@ public class UILoading : GTWindow
         mResPath = "Loading/UILoading";
     }
 
-    private UISlider   mProgressBar;
-    private UILabel    mProgressText;
-    private UITexture  mBackground;
+    private UISlider mProgressBar;
+    private UILabel mProgressText;
+    private UILabel mProgressDesc;
+    private UITexture mBackground;
 
     protected override void OnAwake()
     {
         mProgressBar = transform.transform.Find("ProgressBar").GetComponent<UISlider>();
         mProgressText = transform.Find("ProgressText").GetComponent<UILabel>();
+        mProgressDesc = transform.Find("ProgressDesc").GetComponent<UILabel>();
         mBackground = transform.Find("Background").GetComponent<UITexture>();
     }
 
@@ -44,6 +46,7 @@ public class UILoading : GTWindow
         mBackground.width = 1280;
         mBackground.mainTexture = GTResourceManager.Instance.Load<Texture2D>(mBackTextures[ran]);
         UpdateProgress(0);
+        mProgressDesc.text = "";
     }
 
     protected override void OnDelHandler()
@@ -60,5 +63,10 @@ public class UILoading : GTWindow
     {
         mProgressBar.value = progress;
         mProgressText.text = GTTools.ToPercent(progress);
+    }
+
+    public void UpdateDesc(string str)
+    {
+        mProgressDesc.text = str;
     }
 }

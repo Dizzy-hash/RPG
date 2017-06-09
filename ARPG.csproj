@@ -616,6 +616,7 @@
     <Compile Include="Assets\Scripts\Frameworks\GTTimerManager.cs" />
     <Compile Include="Assets\Scripts\Frameworks\GTUpdate.cs" />
     <Compile Include="Assets\Scripts\Frameworks\GTXmlHelper.cs" />
+    <Compile Include="Assets\Scripts\Frameworks\VersionManager.cs" />
     <Compile Include="Assets\Scripts\GUI\Adventure\UIAdventure.cs" />
     <Compile Include="Assets\Scripts\GUI\Bag\UIBag.cs" />
     <Compile Include="Assets\Scripts\GUI\Bag\UIRoleEquip.cs" />
@@ -818,12 +819,14 @@
     <Compile Include="Assets\Scripts\Scene\Core\SceneLogin.cs" />
     <Compile Include="Assets\Scripts\Scene\Core\ScenePVE.cs" />
     <Compile Include="Assets\Scripts\Scene\Core\SceneRole.cs" />
+    <Compile Include="Assets\Scripts\Scene\Core\SceneVersion.cs" />
     <Compile Include="Assets\Scripts\Scene\Core\SceneWorld.cs" />
     <Compile Include="Assets\Scripts\Scene\Interface\IScene.cs" />
     <Compile Include="Assets\Scripts\Scene\Interface\ISceneListener.cs" />
     <Compile Include="Assets\Scripts\Task\Interface\ITaskBase.cs" />
     <Compile Include="Assets\Scripts\Task\Interface\ITaskSubBase.cs" />
     <Compile Include="Assets\Scripts\Task\Manager\TaskManager.cs" />
+    <Compile Include="Assets\Scripts\Util\ZipFile.cs" />
     <Compile Include="Assets\T4M\Scripts\T4MBillBObjSC.cs" />
     <Compile Include="Assets\T4M\Scripts\T4MLodObjSC.cs" />
     <Compile Include="Assets\T4M\Scripts\T4MObjSC.cs" />
