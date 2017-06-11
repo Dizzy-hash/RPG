@@ -7,7 +7,7 @@ public class UILoading : GTWindow
 {
     public string [] mBackTextures = new string[1]
     {
-        "Textures/Background/Background_1",
+        "Icons/LoadingBg/Background_1",
     };
     
     public UILoading()
