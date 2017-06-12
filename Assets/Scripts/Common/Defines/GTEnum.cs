@@ -110,20 +110,37 @@ public enum ERuneType
     BIG = 3 //大雕文
 }
 
-//场景类型
-public enum ESceneType
+public enum GameState
 {
-    TYPE_INIT   = 0,
-    TYPE_VERSION = 1,
-    TYPE_LOAD = 2,
-    TYPE_LOGIN  = 3,
-    TYPE_ROLE   = 4,
-    TYPE_CITY   = 5,
-    TYPE_PVE    = 6,
-    TYPE_WORLD  = 7,
-    TYPE_AREA   = 8,
+    None,
+    Update,
+    Loading,
+    Battle,
 }
 
+//场景类型
+public enum SceneState
+{
+    None = 1,
+    Login = 2,
+    Create = 3,
+    City = 4,
+    World = 5
+}
+
+public enum SceneType
+{
+    Login = 1,
+    Create = 2,
+    City = 3,
+    World = 4
+}
+
+public enum SceneID
+{
+    Login = 1,
+    Create = 2
+}
 
 public enum ECompare
 {

@@ -18,7 +18,7 @@
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.6.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
-    <LangVersion>4</LangVersion>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -574,7 +574,6 @@
     <Compile Include="Assets\Scripts\Common\Defines\GTEnum.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTLayer.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTPrefabKey.cs" />
-    <Compile Include="Assets\Scripts\Common\Defines\GTSceneKey.cs" />
     <Compile Include="Assets\Scripts\Common\Struct\KAttrValue.cs" />
     <Compile Include="Assets\Scripts\Common\Struct\KCallback.cs" />
     <Compile Include="Assets\Scripts\Common\Struct\KEffect.cs" />
@@ -763,10 +762,6 @@
     <Compile Include="Assets\Scripts\Logic\Store\StoreService.cs" />
     <Compile Include="Assets\Scripts\Logic\Task\TaskCtrl.cs" />
     <Compile Include="Assets\Scripts\Logic\Task\TaskService.cs" />
-    <Compile Include="Assets\Scripts\Main\GTCtrlManager.cs" />
-    <Compile Include="Assets\Scripts\Main\GTLauncher.cs" />
-    <Compile Include="Assets\Scripts\Main\GTTouchEffect.cs" />
-    <Compile Include="Assets\Scripts\Main\GTWorld.cs" />
     <Compile Include="Assets\Scripts\NLE\Attributes\NEventAttribute.cs" />
     <Compile Include="Assets\Scripts\NLE\Attributes\NGroupAttribute.cs" />
     <Compile Include="Assets\Scripts\NLE\Attributes\NTrackAttribute.cs" />
@@ -813,16 +808,22 @@
     <Compile Include="Assets\Scripts\Res\GTResourceManager.cs" />
     <Compile Include="Assets\Scripts\Res\GTResourceTask.cs" />
     <Compile Include="Assets\Scripts\Res\GTResourceUnit.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneCity.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneInit .cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneLoading.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneLogin.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\ScenePVE.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneRole.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneVersion.cs" />
-    <Compile Include="Assets\Scripts\Scene\Core\SceneWorld.cs" />
-    <Compile Include="Assets\Scripts\Scene\Interface\IScene.cs" />
-    <Compile Include="Assets\Scripts\Scene\Interface\ISceneListener.cs" />
+    <Compile Include="Assets\Scripts\System\GTCtrlManager.cs" />
+    <Compile Include="Assets\Scripts\System\GTLauncher.cs" />
+    <Compile Include="Assets\Scripts\System\GTTouchEffect.cs" />
+    <Compile Include="Assets\Scripts\System\GTWorld.cs" />
+    <Compile Include="Assets\Scripts\System\Game\GameBaseState.cs" />
+    <Compile Include="Assets\Scripts\System\Game\GameBattleState.cs" />
+    <Compile Include="Assets\Scripts\System\Game\GameLoadingState.cs" />
+    <Compile Include="Assets\Scripts\System\Game\GameNoneState.cs" />
+    <Compile Include="Assets\Scripts\System\Game\GameUpdateState.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\IScene.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\ISceneListener.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\SceneCity.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\SceneCreate.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\SceneLogin.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\SceneNone.cs" />
+    <Compile Include="Assets\Scripts\System\Scene\SceneWorld.cs" />
     <Compile Include="Assets\Scripts\Task\Interface\ITaskBase.cs" />
     <Compile Include="Assets\Scripts\Task\Interface\ITaskSubBase.cs" />
     <Compile Include="Assets\Scripts\Task\Manager\TaskManager.cs" />

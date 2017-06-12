@@ -10,7 +10,20 @@ namespace EDT
 {
     public class EditorResourceBuild
     {
-        static string OUTPUTPATH = Application.dataPath.Replace("/Assets", string.Empty) + "/AssetBundles";
+        static string OUTPUTPATH = Application.streamingAssetsPath + "/Resoucrces";
+
+        static string[] assetsPath = new string[] {
+            "/Res/Map/" , ".unity"
+        };
+
+        public static void Build()
+        {
+            DelBundles();
+            DelBundleNames();
+            SetBundleConfig();
+            SetBundleNames();
+            BuildBundles();
+        }
 
         static void DelBundles()
         {
@@ -23,84 +36,92 @@ namespace EDT
 
         static void DelBundleNames()
         {
-            var length = AssetDatabase.GetAllAssetBundleNames().Length;
-            var oldAssetBundleNames = new string[length];
-            for (var i = 0; i < length; i++)
+            string[] bundles = AssetDatabase.GetAllAssetBundleNames();
+            for (var i = 0; i < bundles.Length; i++)
             {
-                oldAssetBundleNames[i] = AssetDatabase.GetAllAssetBundleNames()[i];
-            }
-            for (var j = 0; j < oldAssetBundleNames.Length; j++)
-            {
-                AssetDatabase.RemoveAssetBundleName(oldAssetBundleNames[j], true);
+                AssetDatabase.RemoveAssetBundleName(bundles[i], true);
             }
         }
 
         static void SetBundleConfig()
         {
             List<GTResourceUnit> list = new List<GTResourceUnit>();
-            UnityEngine.Object[] assets = Selection.GetFiltered(typeof(UnityEngine.Object), SelectionMode.DeepAssets);
-            for (int i = 0; i < assets.Length; i++)
+
+            for (int i = 0; i < assetsPath.Length / 2; i ++)
             {
-                UnityEngine.Object obj = assets[i];
-                string assetPath = AssetDatabase.GetAssetPath(obj);
-                string extenName = System.IO.Path.GetExtension(assetPath).ToLower();
-                if (string.IsNullOrEmpty(extenName) || extenName == ".meta")
+                string[] files = Directory.GetFiles(Application.dataPath + assetsPath[i * 2], "*" + assetsPath[i * 2 + 1]);
+                foreach (string file in files)
                 {
-                    continue;
-                }
-                GTResourceUnit bundle = new GTResourceUnit();
-                switch (extenName)
-                {
-                    case ".xml":
-                    case ".txt":
-                        {
-                            bundle.AssetName = obj.name + extenName;
-                            bundle.AssetBundleName = obj.name + extenName + ".assetbundle";
-                            bundle.Path = assetPath;
-                            bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
-                        }
-                        break;
-                    case ".prefab":
-                        {
-                            bundle.AssetName = obj.name + extenName;
-                            bundle.AssetBundleName = GTTools.GetParentPathName(assetPath) + ".pre.assetbundle";
-                            bundle.Path = assetPath;
-                            bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
-                        }
-                        break;
-                    case ".mp3":
-                        {
-                            bundle.AssetName = obj.name + extenName;
-                            bundle.AssetBundleName = obj.name + extenName + ".assetbundle";
-                            bundle.Path = assetPath;
-                            bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
-                        }
-                        break;
-                    case ".png":
-                        {
-                            if (assetPath.Contains("Image"))
+                    UnityEngine.Object obj;
+                    string assetPath = file.Replace(Application.dataPath , "");
+                    string extenName = System.IO.Path.GetExtension(file).ToLower();
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(file).ToLower();
+                    if (string.IsNullOrEmpty(extenName) || extenName == ".meta")
+                    {
+                        continue;
+                    }
+                    GTResourceUnit bundle = new GTResourceUnit();
+                    switch (extenName)
+                    {
+                        case ".unity":
                             {
-                                bundle.AssetName = obj.name + extenName;
-                                bundle.AssetBundleName = GTTools.GetParentPathName(assetPath) + ".atlas.assetbundle";
+                                bundle.AssetName = fileName;
+                                bundle.AssetBundleName = fileName + ".unity3d";
+                                bundle.Path = assetPath.Replace(bundle.AssetBundleName , "");
+                                bundle.GUID = AssetDatabase.AssetPathToGUID("Assets" + assetPath);
+                            }
+                            break;
+                        case ".xml":
+                        case ".txt":
+                            {
+                                bundle.AssetName = fileName + extenName;
+                                bundle.AssetBundleName = fileName + extenName + ".assetbundle";
                                 bundle.Path = assetPath;
                                 bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
                             }
-                            if (assetPath.Contains("T_Background"))
+                            break;
+                        case ".prefab":
                             {
-                                bundle.AssetName = obj.name + extenName;
-                                bundle.AssetBundleName = obj.name + ".tex.assetbundle";
+                                bundle.AssetName = fileName + extenName;
+                                bundle.AssetBundleName = GTTools.GetParentPathName(assetPath) + ".pre.assetbundle";
+                                bundle.Path = assetPath;
                                 bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
                             }
-                        }
-                        break;
+                            break;
+                        case ".mp3":
+                            {
+                                bundle.AssetName = fileName + extenName;
+                                bundle.AssetBundleName = fileName + extenName + ".assetbundle";
+                                bundle.Path = assetPath;
+                                bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
+                            }
+                            break;
+                        case ".png":
+                            {
+                                if (assetPath.Contains("Image"))
+                                {
+                                    bundle.AssetName = fileName + extenName;
+                                    bundle.AssetBundleName = GTTools.GetParentPathName(assetPath) + ".atlas.assetbundle";
+                                    bundle.Path = assetPath;
+                                    bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
+                                }
+                                if (assetPath.Contains("T_Background"))
+                                {
+                                    bundle.AssetName = fileName + extenName;
+                                    bundle.AssetBundleName = fileName + ".tex.assetbundle";
+                                    bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
+                                }
+                            }
+                            break;
 
+                    }
+                    if (string.IsNullOrEmpty(bundle.AssetName))
+                    {
+                        continue;
+                    }
+                    bundle.AssetBundleName = bundle.AssetBundleName.ToLower();
+                    list.Add(bundle);
                 }
-                if (string.IsNullOrEmpty(bundle.AssetName))
-                {
-                    continue;
-                }
-                bundle.AssetBundleName = bundle.AssetBundleName.ToLower();
-                list.Add(bundle);
             }
 
             list.Sort((a1, a2) => { return a1.AssetName.CompareTo(a2.AssetName); });
@@ -124,13 +145,13 @@ namespace EDT
                 child.SetAttribute("GUID", bundle.GUID);
             }
 
-            string fileName = Application.streamingAssetsPath + "/Asset.xml";
+            string refName = Application.streamingAssetsPath + "/Asset.xml";
             FileStream fs = null;
-            if (!File.Exists(fileName))
+            if (!File.Exists(refName))
             {
-                fs = File.Create(fileName);
+                fs = File.Create(refName);
             }
-            doc.Save(fileName);
+            doc.Save(refName);
             if (fs != null)
             {
                 fs.Flush();
@@ -157,15 +178,6 @@ namespace EDT
         {
             BuildPipeline.BuildAssetBundles(OUTPUTPATH, BuildAssetBundleOptions.UncompressedAssetBundle,
                 EditorUserBuildSettings.activeBuildTarget);
-        }
-
-        public static void Build()
-        {
-            DelBundles();
-            DelBundleNames();
-            SetBundleConfig();
-            SetBundleNames();
-            BuildBundles();
         }
     }
 }

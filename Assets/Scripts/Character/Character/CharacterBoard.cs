@@ -58,16 +58,11 @@ public class CharacterBoard : ICharacterComponent
 
     public void StartupComponent()
     {
-        if (GTLauncher.Instance.CurrSceneType != ESceneType.TYPE_CITY  &&
-            GTLauncher.Instance.CurrSceneType != ESceneType.TYPE_WORLD &&
-            GTLauncher.Instance.CurrSceneType != ESceneType.TYPE_PVE   &&
-            GTLauncher.Instance.CurrSceneType != ESceneType.TYPE_AREA)
+        if (GTLauncher.Instance.currSceneState != SceneState.City  && GTLauncher.Instance.currSceneState != SceneState.World)
         {
             return;
         }
-        if (mOwner.Type == EActorType.NPC    ||
-            mOwner.Type == EActorType.PLAYER ||
-            mOwner.Type == EActorType.MONSTER)
+        if (mOwner.Type == EActorType.NPC || mOwner.Type == EActorType.PLAYER || mOwner.Type == EActorType.MONSTER)
         {
             this.mBoard = GTWorld.Instance.HUD.Create(mOwner);
         }

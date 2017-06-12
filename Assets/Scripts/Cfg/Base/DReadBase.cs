@@ -9,7 +9,7 @@ public class DReadBase<TKey, TValue> where TValue : DObj<TKey>
     static Dictionary<TKey, TValue> mDataMap = new Dictionary<TKey, TValue>();
     public static string p;
 
-    public static void                    Read(string path)
+    public static void Read(string path)
     {
         p = path;
         if (string.IsNullOrEmpty(path))
@@ -37,7 +37,7 @@ public class DReadBase<TKey, TValue> where TValue : DObj<TKey>
         }
     }
 
-    public static TValue                  GetDataById(TKey key)
+    public static TValue GetDataById(TKey key)
     {
         TValue v = null;
         mDataMap.TryGetValue(key, out v);
@@ -54,7 +54,7 @@ public class DReadBase<TKey, TValue> where TValue : DObj<TKey>
         get { return mDataMap.Count; }
     }
 
-    public static bool                    ContainsKey(TKey key)
+    public static bool ContainsKey(TKey key)
     {
         return mDataMap.ContainsKey(key);
     }

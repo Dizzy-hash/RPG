@@ -38,7 +38,7 @@ public class RoleModule : GTSingleton<RoleModule>
         {
             player = new XCharacter();
             player.Level = 1;
-            player.Id = GTLauncher.Instance.TestActorID;
+            player.Id = 1;
         }
         return player;
     }

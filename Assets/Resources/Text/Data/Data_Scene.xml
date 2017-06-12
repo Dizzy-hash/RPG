@@ -1,21 +1,20 @@
 <?xml version="1.0" standalone="yes"?>
 <RECORDS>
-<RECORD Id="0" SceneType="0" SceneName="Lancher" SceneMusic=""/>
-<RECORD Id="1" SceneType="1" SceneName="Login" SceneMusic="Sound/Music/Menu"/>
-<RECORD Id="2" SceneType="2" SceneName="Role" SceneMusic="Sound/Music/Role"/>
-<RECORD Id="3" SceneType="3" SceneName="City_1" SceneMusic="Sound/Music/Bmc"/>
-<RECORD Id="4" SceneType="3" SceneName="City_2" SceneMusic="Sound/Music/Bmc"/>
-<RECORD Id="5" SceneType="3" SceneName="City_3" SceneMusic="Sound/Music/Bmc"/>
-<RECORD Id="6" SceneType="3" SceneName="City_4" SceneMusic="Sound/Music/Bmc"/>
-<RECORD Id="10001" SceneType="4" SceneName="Map10001" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10002" SceneType="4" SceneName="Map10002" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10003" SceneType="4" SceneName="Map10003" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10004" SceneType="4" SceneName="Map10004" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10005" SceneType="4" SceneName="Map10005" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10006" SceneType="4" SceneName="Map10006" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10007" SceneType="4" SceneName="Map10007" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10008" SceneType="4" SceneName="Map10008" SceneMusic="Sound/Music/Taibai"/>
-<RECORD Id="10009" SceneType="4" SceneName="Map10009" SceneMusic="Sound/Music/Taibai"/>
+<RECORD Id="1" SceneType="1" SceneName="Login" SceneMusic="Sound/Music/Warcraft"/>
+<RECORD Id="2" SceneType="2" SceneName="Create" SceneMusic="Sound/Music/Create"/>
+<RECORD Id="3" SceneType="3" SceneName="City_1" SceneMusic="Sound/Music/Horde"/>
+<RECORD Id="4" SceneType="3" SceneName="City_2" SceneMusic="Sound/Music/Horde"/>
+<RECORD Id="5" SceneType="3" SceneName="City_3" SceneMusic="Sound/Music/Horde"/>
+<RECORD Id="6" SceneType="3" SceneName="City_4" SceneMusic="Sound/Music/Horde"/>
+<RECORD Id="10001" SceneType="4" SceneName="Map10001" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10002" SceneType="4" SceneName="Map10002" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10003" SceneType="4" SceneName="Map10003" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10004" SceneType="4" SceneName="Map10004" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10005" SceneType="4" SceneName="Map10005" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10006" SceneType="4" SceneName="Map10006" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10007" SceneType="4" SceneName="Map10007" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10008" SceneType="4" SceneName="Map10008" SceneMusic="Sound/Music/Guldan"/>
+<RECORD Id="10009" SceneType="4" SceneName="Map10009" SceneMusic="Sound/Music/Guldan"/>
 <RECORD Id="10010" SceneType="4" SceneName="Map10010" SceneMusic="Sound/Music/Taibai"/>
 <RECORD Id="10011" SceneType="4" SceneName="Map10011" SceneMusic="Sound/Music/Taibai"/>
 <RECORD Id="10012" SceneType="4" SceneName="Map10012" SceneMusic="Sound/Music/Taibai"/>

@@ -37,7 +37,7 @@ public class LoginCtrl : GTSingleton<LoginCtrl>, ICtrl
         GTLauncher.CurPlayerID = ack.Player.Id;
 
         GTEventCenter.FireEvent(GTEventID.TYPE_ENTERGAME_CALLBACK);
-        GTLauncher.Instance.LoadScene(GTLauncher.Instance.LAST_CITY_ID);
+        GTLauncher.Instance.LoadScene(GTLauncher.Instance.lastMapId);
     }
 
     private void OnAck_GetServerList(MessageRecv obj, MessageRetCode retCode)
@@ -51,7 +51,7 @@ public class LoginCtrl : GTSingleton<LoginCtrl>, ICtrl
         AckLoginGame ack = Serializer.Deserialize<AckLoginGame>(ms);
 
         GTEventCenter.FireEvent(GTEventID.TYPE_LOGINGAME_CALLBACK);
-        GTLauncher.Instance.LoadScene(GTSceneKey.SCENE_Role);
+        GTLauncher.Instance.LoadScene(2);
     }
 
     private void OnAck_Login(MessageRecv obj, MessageRetCode retCode)

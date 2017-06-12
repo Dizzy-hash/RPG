@@ -88,9 +88,11 @@ public class GTCameraManager : GTMonoSingleton<GTCameraManager>
         mRoot = UIRoot.list[0];
         NGUITools.SetLayer(mRoot.gameObject, GTLayer.LAYER_UI);
 
-        mRoot.scalingStyle = UIRoot.Scaling.Flexible;
-        mRoot.minimumHeight = 320;
-        mRoot.maximumHeight = 4096;
+        mRoot.scalingStyle = UIRoot.Scaling.ConstrainedOnMobiles;
+        mRoot.fitWidth = true;
+        mRoot.fitHeight = true;
+        mRoot.manualWidth = 1334;
+        mRoot.manualHeight = 750;
         NGUICamera = UICamera.eventHandler.cachedCamera;
         NGUICamera.clearFlags = CameraClearFlags.Depth;
         NGUICamera.depth = DEPTH_CAM_2DUICAMERA;

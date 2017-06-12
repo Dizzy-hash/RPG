@@ -8,7 +8,7 @@ public class DScene : DObj<int>
 {
     public int         Id;
     public string      SceneName;
-    public ESceneType  SceneType;
+    public SceneType SceneType;
     public string      SceneMusic;
     public float       DelayTime;
 
@@ -21,7 +21,7 @@ public class DScene : DObj<int>
     {
         this.Id         = element.GetInt("Id");
         this.SceneName  = element.GetString("SceneName");
-        this.SceneType  = (ESceneType)element.GetInt("SceneType");
+        this.SceneType  = (SceneType)element.GetInt("SceneType");
         this.SceneMusic = element.GetString("SceneMusic");
     }
 }

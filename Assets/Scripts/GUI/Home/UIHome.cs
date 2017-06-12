@@ -54,7 +54,7 @@ public class UIHome : GTWindow
 
     readonly List<ItemFunc> TopBtnTemps;
     readonly List<ItemFunc> BottomBtnTemps;
-    readonly Dictionary<ESceneType, FuncArea[]> ShowAreas;
+    readonly Dictionary<SceneType, FuncArea[]> ShowAreas;
 
     private List<GameObject> mBottomButtons = new List<GameObject>();
     private List<GameObject> mTopButtons = new List<GameObject>();
@@ -438,7 +438,7 @@ public class UIHome : GTWindow
     private void OnPauseClick(GameObject go)
     {
         GTAudioManager.Instance.PlayEffectAudio(GTAudioKey.SOUND_UI_CLICK);
-        GTLauncher.Instance.LoadScene(GTLauncher.Instance.LAST_CITY_ID);
+        GTLauncher.Instance.LoadScene(GTLauncher.Instance.lastMapId);
     }
 
     private void OnCastSkillClick(GameObject go)

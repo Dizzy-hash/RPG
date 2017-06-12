@@ -77,7 +77,7 @@ public class UISetting : GTWindow
     private void OnLogoutClick(GameObject go)
     {
         GTAudioManager.Instance.PlayEffectAudio(GTAudioKey.SOUND_UI_CLICK);
-        GTLauncher.Instance.LoadScene(GTSceneKey.SCENE_LOGIN);
+        GTLauncher.Instance.LoadScene(1);
     }
 
     private void OnCloseClick(GameObject go)

@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARPG.Plugins", "ARPG.Plugins.csproj", "{935B0BC1-BFF9-3FE6-CE86-FE0844DA68BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARPG", "ARPG.csproj", "{886D14F9-0613-9012-84FB-641A37973086}"

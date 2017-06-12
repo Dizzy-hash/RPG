@@ -86,8 +86,8 @@ public class CharacterCtrl : GTSingleton<CharacterCtrl>,ICtrl
             CalcCharacterOperateError(Resp.TYPE_RIDE_NONE);
             return;
         }
-        if (GTLauncher.Instance.CurrSceneType != ESceneType.TYPE_CITY &&
-            GTLauncher.Instance.CurrSceneType != ESceneType.TYPE_WORLD)
+        if (GTLauncher.Instance.currSceneState != SceneState.City &&
+            GTLauncher.Instance.currSceneState != SceneState.World)
         {
             CalcCharacterOperateError(Resp.TYPE_RIDE_NOTDOATSCENE);
             return;
