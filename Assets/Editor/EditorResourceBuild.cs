@@ -53,7 +53,7 @@ namespace EDT
                 foreach (string file in files)
                 {
                     UnityEngine.Object obj;
-                    string assetPath = file.Replace(Application.dataPath , "");
+                    string assetPath = "Assets" + file.Replace(Application.dataPath , "");
                     string extenName = System.IO.Path.GetExtension(file).ToLower();
                     string fileName = System.IO.Path.GetFileNameWithoutExtension(file).ToLower();
                     if (string.IsNullOrEmpty(extenName) || extenName == ".meta")
@@ -67,8 +67,8 @@ namespace EDT
                             {
                                 bundle.AssetName = fileName;
                                 bundle.AssetBundleName = fileName + ".unity3d";
-                                bundle.Path = assetPath.Replace(bundle.AssetBundleName , "");
-                                bundle.GUID = AssetDatabase.AssetPathToGUID("Assets" + assetPath);
+                                bundle.Path = assetPath;
+                                bundle.GUID = AssetDatabase.AssetPathToGUID(assetPath);
                             }
                             break;
                         case ".xml":
@@ -176,8 +176,7 @@ namespace EDT
 
         static void BuildBundles()
         {
-            BuildPipeline.BuildAssetBundles(OUTPUTPATH, BuildAssetBundleOptions.UncompressedAssetBundle,
-                EditorUserBuildSettings.activeBuildTarget);
+            BuildPipeline.BuildAssetBundles(OUTPUTPATH, BuildAssetBundleOptions.UncompressedAssetBundle,EditorUserBuildSettings.activeBuildTarget);
         }
     }
 }
