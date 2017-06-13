@@ -1,0 +1,15 @@
+﻿<Actor Id="50009" Name="亡灵寺僧">
+
+  <Skill Id="5000901"  Name="普攻1"  StateTime="1.667"  CD="4"  CastDistance="15" Pos="0">
+    <Sequence>
+        <Anim   AnimName="attack_01"  Sound="1001001"/>
+        <Parallel>
+            <Anim   AnimName="attack_02"  Sound="1001001"/>
+            <Clone>
+                <Effect Id="62011" LastTime="3"  FlySpeed="10"  Bind="1"  Type="1"  Fly="2"  Sound=""/>
+           </Clone>
+       </Parallel>
+   </Sequence>
+ </Skill>
+
+</Actor>

@@ -1,0 +1,79 @@
+﻿<Actor Id="50053"  Name="双头食人魔">
+  
+
+  <Skill Id="5005301"  Name="普攻1"  StateTime="0.4331"  CD="0"  CastDistance="15" Pos="0">
+    <Sequence>
+          <Anim   AnimName="attack_01"  Sound="1001001"/>
+          <Clone>
+              <Effect Id="62011" LastTime="3"  FlySpeed="10"  Bind="1"  Type="1"  Fly="2"  Sound=""/>
+         </Clone>
+   </Sequence>
+  </Skill>
+ 
+  <Skill Id="5005302"  Name="普攻2"  StateTime="0.500"   CD="0"  CastDistance="15" Pos="1">
+    <Sequence>
+        <Anim    AnimName="attack_02"  Sound="1001001"/>
+        <Clone>
+            <Effect Id="62011" LastTime="3"  FlySpeed="10"  Bind="1"  Type="1"  Fly="2"  Sound=""/>
+       </Clone>      
+   </Sequence>
+  </Skill>
+
+  <Skill Id="5005303"  Name="普攻3"  StateTime="0.267"   CD="0"  CastDistance="15" Pos="2">
+    <Sequence>
+        <Anim   AnimName="attack_03"  Sound="1001001"/>
+        <Clone>
+            <Effect Id="62011" LastTime="3"  FlySpeed="10"  Bind="1"  Type="1"  Fly="2"  Sound=""/>
+       </Clone>      
+   </Sequence>
+  </Skill>
+
+  <Skill Id="5005304"  Name="普攻4"  StateTime="1.567"   CD="0"  CastDistance="15" Pos="3">
+    <Sequence>
+        <Anim   AnimName="attack_04"  Sound="1001001"/>
+        <Clone>
+             <Effect Id="62011" LastTime="3"  FlySpeed="10"  Bind="1"  Type="1"  Fly="2"  Sound=""/>
+       </Clone>      
+   </Sequence>
+  </Skill>
+
+  <Skill Id="5005305"  Name="普攻5"  StateTime="0.567"   CD="0"  CastDistance="15" Pos="4">
+    <Sequence>
+        <Anim   AnimName="attack_05"  Sound="1001001"/>
+        <Clone>
+            <Effect Id="62011" LastTime="3"  FlySpeed="10"  Bind="1"  Type="1"  Fly="2"  Sound=""/>
+       </Clone>      
+   </Sequence>
+  </Skill>
+
+  <Skill Id="5005306"  Name="烈焰冲击"  StateTime="1.500"  CD="4"  Pos="5"  CastDistance="7">
+    <Sequence>
+        <Anim   AnimName="skill_lieyanchongji_01"  Sound="1001001"/>
+        <Parallel>
+            <Anim   AnimName="skill_lieyanchongji_02"  Sound="1001001"/>
+            <Effect Id="64034" LastTime="1.167"  Type="1" Bind="3"  Sound=""/>
+       </Parallel>
+   </Sequence>
+ </Skill>
+
+  <Skill Id="50053037"  Name="烈焰形态"  StateTime="1.166"  CD="6"  Pos="6">
+    <Sequence>
+      <Anim   AnimName="skill_lieyanxingtai_01"  Sound="1001001"/>
+      <Anim   AnimName="skill_lieyanxingtai_02"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005308"  Name="龙息术"    StateTime="2.965"   CD="8"  Pos="7"  CastDistance="7">
+    <Sequence>
+         <Anim   AnimName="skill_longxi_01"  Sound="1001001"/>
+         <Parallel>
+            <Effect Id="64004" LastTime="1.732"  Type="1" Bind="3"  Sound=""/>
+            <LoopSequence Times="4">
+               <Anim   AnimName="skill_longxi_03"  Sound="1001001"/>
+           </LoopSequence>
+        </Parallel>
+         <Anim   AnimName="skill_longxi_04"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+  
+</Actor>

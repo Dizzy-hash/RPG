@@ -1,0 +1,62 @@
+﻿<Actor Id="50052"  Name="魅魔">
+
+  <Skill Id="5005201"  Name="普攻"  StateTime="2.566"  CD="0"  CastDistance="3.0" Pos="0">
+    <Sequence>
+      <Parallel>
+          <Anim   AnimName="attack_01"  Sound="1001001"/>
+          <Effect Id="61056" Delay="0.200" LastTime="0.200"  Bind="3"  Type="1"/>
+     </Parallel>
+      <Parallel>
+          <Anim   AnimName="attack_02"  Sound="1001001"/>
+          <Effect Id="61057" Delay="0.200" LastTime="0.200"  Bind="3"  Type="1"/>
+     </Parallel>
+      <Parallel>
+          <Anim   AnimName="attack_03"  Sound="1001001"/>
+          <Effect Id="61058" Delay="0.200" LastTime="0.200"  Bind="3"  Type="1"/>
+     </Parallel>
+      <Parallel>
+          <Anim   AnimName="attack_04"  Sound="1001001"/>
+     </Parallel>
+    </Sequence>
+  </Skill>
+
+
+  <Skill Id="5005202"  Name="恐惧深渊"  StateTime="1.666"  CD="3"    CastDistance="5.0" Pos="1"  >
+     <Sequence>      
+          <Anim   AnimName="skill_kongjushenyuan_01"  Sound="1001001"/>
+          <Parallel>
+              <Anim   AnimName="skill_kongjushenyuan_02"  Sound="1001001"/>
+              <Clone>
+                   <Effect Id="64033" LastTime="5.000"  Bind="3"  Type="1"/> 
+             </Clone>
+         </Parallel>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005203"  Name="死神挥舞"  StateTime="1.566"  CD="7"    CastDistance="3.5" Pos="2"  >
+    <Sequence>
+      <Anim   AnimName="skill_sishenhuiwu_01"  Sound="1001001"/>
+      <Parallel>
+           <Effect Id="61060" Delay="0.300" LastTime="0.500"  Bind="3"  Type="1"/>
+           <Anim   AnimName="skill_sishenhuiwu_02"  Sound="1001001"/>
+     </Parallel>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005204"  Name="死神降临"  StateTime="0.900"  CD="9"  Pos="3">
+    <Sequence>
+      <Anim   AnimName="skill_sishenjianglin"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005205"  Name="血腥飞镰"  StateTime="1.166"  CD="5"    CastDistance="10"  Pos="4">
+    <Sequence>
+      <Anim   AnimName="skill_xuexingfeilian_01"  Sound="1001001"/>
+      <Clone>
+           <Effect Id="62021" LastTime="2"  Fly="2"  FlySpeed="15" Bind="1"  Type="1"  Sound=""/>
+     </Clone>
+      <Anim   AnimName="skill_xuexingfeilian_02"  Sound="1001001"/>
+    </Sequence>
+  </Skill>  
+  
+</Actor>

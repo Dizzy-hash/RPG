@@ -1,0 +1,21 @@
+﻿<Actor Id="50045" Name="亡灵村民">
+
+  <Skill Id="5004501"  Name="普攻1"  StateTime="1.033"  CD="0"  CastDistance="2.0" Pos="0">
+     <Sequence>
+        <Anim   AnimName="attack_01"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5004502"  Name="普攻2"  StateTime="0.733"  CD="0"  CastDistance="2.0" Pos="1">
+     <Sequence>
+        <Anim   AnimName="attack_02"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+  
+  <Skill Id="5004503"  Name="风车"  StateTime="1.633"   CD="7"  CastDistance="1.8" Pos="2">
+     <Sequence>
+      <Anim   AnimName="skill_01"  Sound="1001001"/>
+    </Sequence>
+  </Skill>  
+
+</Actor>

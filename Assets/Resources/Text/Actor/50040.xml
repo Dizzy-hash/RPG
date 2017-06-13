@@ -1,9 +1,0 @@
-﻿<Actor Id="50040" Name="扭曲幻兽">
-
-  <Skill Id="5004001"  Name="普攻"  StateTime="1.667" CD="0"  Pos="0"  CastDistance="2.0">
-     <Sequence>
-          <Anim   AnimName="attack_01"  Sound="1001001"/>
-    </Sequence>
-  </Skill>
-
-</Actor>

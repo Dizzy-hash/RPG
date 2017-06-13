@@ -10,13 +10,44 @@ namespace EDT
 {
     public class EditorResourceBuild
     {
-        static string OUTPUTPATH = Application.streamingAssetsPath + "/Resoucrces";
-
         static string[] assetsPath = new string[] {
-            "/Res/Map/" , ".unity"
+            "/ResourceAssets/Config/" , "*.xml",
+            "/ResourceAssets/Config/" , "*.txt",
+            "/ResourceAssets/Curve/" , "*.prefab",
+            "/ResourceAssets/Effect/" , "*.prefab",
+            "/ResourceAssets/Guis/" , "*.prefab",
+            "/ResourceAssets/Icons/" , "*.png",
+            "/ResourceAssets/Icons/" , "*.jpg",
+            "/ResourceAssets/Map/" , "*.unity",
+            "/ResourceAssets/Model/" , "*.prefab",
+            "/ResourceAssets/Sound/" , "*.map3",
+            "/ResourceAssets/Sound/" , "*.wav"
         };
 
-        public static void Build()
+        static BuildTarget buildTarget;
+
+        [MenuItem("BuildAssets/BuildWin")]
+        static public void BuildWin()
+        {
+            buildTarget = BuildTarget.StandaloneWindows64;
+            Build();
+        }
+
+        [MenuItem("BuildAssets/BuildAndroid")]
+        static public void BuildAndroid()
+        {
+            buildTarget = BuildTarget.Android;
+            Build();
+        }
+
+        [MenuItem("BuildAssets/BuildIos")]
+        static public void BuildIos()
+        {
+            buildTarget = BuildTarget.iOS;
+            Build();
+        }
+
+        static void Build()
         {
             DelBundles();
             DelBundleNames();
@@ -27,11 +58,11 @@ namespace EDT
 
         static void DelBundles()
         {
-            if (Directory.Exists(OUTPUTPATH))
+            if (Directory.Exists(Application.streamingAssetsPath + "/resourceassets"))
             {
-                Directory.Delete(OUTPUTPATH, true);
+                Directory.Delete(Application.streamingAssetsPath + "/resourceassets", true);
             }
-            Directory.CreateDirectory(OUTPUTPATH);
+            Directory.CreateDirectory(Application.streamingAssetsPath + "/resourceassets");
         }
 
         static void DelBundleNames()
@@ -49,76 +80,74 @@ namespace EDT
 
             for (int i = 0; i < assetsPath.Length / 2; i ++)
             {
-                string[] files = Directory.GetFiles(Application.dataPath + assetsPath[i * 2], "*" + assetsPath[i * 2 + 1]);
+                string[] files = Directory.GetFiles(Application.dataPath + assetsPath[i * 2], assetsPath[i * 2 + 1] , SearchOption.AllDirectories);
                 foreach (string file in files)
                 {
-                    UnityEngine.Object obj;
-                    string assetPath = "Assets" + file.Replace(Application.dataPath , "");
-                    string extenName = System.IO.Path.GetExtension(file).ToLower();
-                    string fileName = System.IO.Path.GetFileNameWithoutExtension(file).ToLower();
+                    string filePath = file.Replace("\\" , "/");
+                    string assetPath = filePath.Replace(Application.dataPath + "/", "");
+                  
+                    string extenName = System.IO.Path.GetExtension(filePath);
+                    string fileName = System.IO.Path.GetFileNameWithoutExtension(filePath);
+
+                    assetPath = assetPath.Replace(fileName + extenName, "");
+
                     if (string.IsNullOrEmpty(extenName) || extenName == ".meta")
                     {
                         continue;
                     }
+                 
                     GTResourceUnit bundle = new GTResourceUnit();
+                    bundle.GUID = AssetDatabase.AssetPathToGUID("Assets/" + assetPath + fileName + extenName);
+                    bundle.FilePath = "Assets" + filePath.Replace(Application.dataPath, "");
+
                     switch (extenName)
                     {
                         case ".unity":
                             {
-                                bundle.AssetName = fileName;
+                                bundle.AssetName = fileName;   
                                 bundle.AssetBundleName = fileName + ".unity3d";
                                 bundle.Path = assetPath;
-                                bundle.GUID = AssetDatabase.AssetPathToGUID(assetPath);
+                                SetDepends(bundle.FilePath);
                             }
                             break;
                         case ".xml":
                         case ".txt":
                             {
                                 bundle.AssetName = fileName + extenName;
-                                bundle.AssetBundleName = fileName + extenName + ".assetbundle";
-                                bundle.Path = assetPath;
-                                bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
+                                bundle.AssetBundleName = "ConfigAssets.assetbundle";
+                                bundle.Path = "resourceassets/";
                             }
                             break;
                         case ".prefab":
                             {
                                 bundle.AssetName = fileName + extenName;
-                                bundle.AssetBundleName = GTTools.GetParentPathName(assetPath) + ".pre.assetbundle";
+                                bundle.AssetBundleName = fileName + ".assetbundle";
                                 bundle.Path = assetPath;
-                                bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
+                                SetDepends(bundle.FilePath);
                             }
                             break;
                         case ".mp3":
                             {
                                 bundle.AssetName = fileName + extenName;
-                                bundle.AssetBundleName = fileName + extenName + ".assetbundle";
+                                bundle.AssetBundleName = fileName + ".assetbundle";
                                 bundle.Path = assetPath;
-                                bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
                             }
                             break;
                         case ".png":
+                        case ".jpg":
                             {
-                                if (assetPath.Contains("Image"))
-                                {
-                                    bundle.AssetName = fileName + extenName;
-                                    bundle.AssetBundleName = GTTools.GetParentPathName(assetPath) + ".atlas.assetbundle";
-                                    bundle.Path = assetPath;
-                                    bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
-                                }
-                                if (assetPath.Contains("T_Background"))
-                                {
-                                    bundle.AssetName = fileName + extenName;
-                                    bundle.AssetBundleName = fileName + ".tex.assetbundle";
-                                    bundle.GUID = AssetDatabase.AssetPathToGUID(bundle.Path);
-                                }
+                                bundle.AssetName = fileName + extenName;
+                                bundle.AssetBundleName = "Icons.assetbundle";
+                                bundle.Path = "resourceassets/";
                             }
                             break;
+                        default:
+                            {
+                                continue;
+                            }
 
                     }
-                    if (string.IsNullOrEmpty(bundle.AssetName))
-                    {
-                        continue;
-                    }
+
                     bundle.AssetBundleName = bundle.AssetBundleName.ToLower();
                     list.Add(bundle);
                 }
@@ -128,7 +157,7 @@ namespace EDT
             GTResourceManager.Instance.Units.Clear();
             foreach (var current in list)
             {
-                GTResourceManager.Instance.Units[current.Path] = current;
+                GTResourceManager.Instance.Units[current.FilePath] = current;
             }
 
             XmlDocument doc = new XmlDocument();
@@ -160,23 +189,37 @@ namespace EDT
             }
         }
 
+        static void SetDepends(string filePath)
+        {
+            string[] dps = AssetDatabase.GetDependencies(filePath);
+            for (int i = 0; i < dps.Length; i++)
+            {
+                if (dps[i] == filePath || dps[i].Contains(".cs")) continue;
+                AssetImporter importer = AssetImporter.GetAtPath(dps[i]);
+                string dpName = AssetDatabase.AssetPathToGUID(dps[i]);
+                importer.assetBundleName = "resourceassets/alldependencies/" + dpName;
+                SetDepends(dps[i]);
+            }
+        }
+
         static void SetBundleNames()
         {
             Dictionary<string, GTResourceUnit> units = GTResourceManager.Instance.Units;
             foreach (var current in units)
             {
                 GTResourceUnit bundle = current.Value;
-                var assetImporter = AssetImporter.GetAtPath(bundle.Path);
+                var assetImporter = AssetImporter.GetAtPath(bundle.FilePath);
                 if (assetImporter != null)
                 {
-                    assetImporter.assetBundleName = bundle.AssetBundleName.ToLower();
-                }
+                    assetImporter.assetBundleName = bundle.Path + bundle.AssetBundleName.ToLower();
+                }                
             }
         }
 
         static void BuildBundles()
         {
-            BuildPipeline.BuildAssetBundles(OUTPUTPATH, BuildAssetBundleOptions.UncompressedAssetBundle,EditorUserBuildSettings.activeBuildTarget);
+            BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath , BuildAssetBundleOptions.UncompressedAssetBundle,EditorUserBuildSettings.activeBuildTarget);
+            AssetDatabase.Refresh();
         }
     }
 }

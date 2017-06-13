@@ -1,9 +1,0 @@
-﻿<Actor Id="50035" Name="矮人队长">
-
-  <Skill Id="5003501"  Name="普攻"  StateTime="2.500"  CD="0"  CastDistance="2.7"  Pos="0">
-     <Sequence>
-          <Anim   AnimName="attack_01"  Sound="1001001"/>
-    </Sequence>
-  </Skill>
-
-</Actor>

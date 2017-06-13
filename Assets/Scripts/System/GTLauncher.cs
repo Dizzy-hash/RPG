@@ -209,7 +209,7 @@ public class GTLauncher : MonoBehaviour
     public void PlayCGMovie()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        Handheld.PlayFullScreenMovie("CG.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit);
+    //    Handheld.PlayFullScreenMovie("CG.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit);
     }
 
     void Update()

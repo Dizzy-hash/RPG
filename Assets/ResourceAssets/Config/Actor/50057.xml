@@ -1,0 +1,86 @@
+﻿<Actor Id="50057"  Name="瓦斯其女士">
+
+
+  <Skill Id="5005701"  Name="普攻1"  StateTime="0.367"   CD="0"  CastDistance="15" Pos="0">
+    <Sequence>
+      <Anim   AnimName="attack_01"  Sound="1001001"/>
+      <Clone>
+          <Effect Id="62022" LastTime="3.000"  Bind="1"  Fly="2"  FlySpeed="25" Type="1"/>
+     </Clone>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005702"  Name="普攻2"  StateTime="0.333"   CD="0"  CastDistance="15" Pos="1">
+    <Sequence>
+      <Anim   AnimName="attack_02"  Sound="1001001"/>
+      <Clone>
+        <Effect Id="62022" LastTime="3.000"  Bind="1"  Fly="2"  FlySpeed="25" Type="1"/>
+      </Clone>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005703"  Name="普攻3"  StateTime="1.500"   CD="0"  CastDistance="15" Pos="2">
+    <Parallel>
+      <Anim   AnimName="attack_03"  Sound="1001001"/>
+      <Clone>
+          <Effect Id="62022" Delay="0.500" LastTime="3.000"  Bind="1"  Fly="2"  FlySpeed="25" Type="1"/>
+     </Clone>
+      <Clone>
+          <Effect Id="62022" Delay="1.200" LastTime="3.000"  Bind="1"  Fly="2"  FlySpeed="25" Type="1"/>
+      </Clone>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5005704"  Name="普攻4"  StateTime="0.967"   CD="0"  CastDistance="15" Pos="3">
+    <Parallel>
+      <Anim   AnimName="attack_04"  Sound="1001001"/>
+      <Clone>
+          <Effect Id="62022" Delay="0.500" LastTime="3.000"  Bind="1"  Fly="2"  FlySpeed="25" Type="1"/>
+     </Clone>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5005705"  Name="爆裂冰晶"  StateTime="1.000"  CD="4"  CastDistance="5" Pos="4">
+    <Sequence>
+      <Anim   AnimName="skill_baoliebingjing_01"  Sound="1001001"/>
+      <Parallel>
+        <Clone>
+          <Effect Id="64028"  LastTime="5.000"  Type="1"  Bind="3"  Sound=""/>
+        </Clone>
+        <Anim   AnimName="skill_baoliebingjing_02"  Sound="1001001"/>
+      </Parallel>
+    </Sequence>
+  </Skill>
+
+  <Skill Id="5005706"  Name="贯通冰刃"  StateTime="2.565"  CD="4"  CastDistance="15" Pos="5">
+    <Parallel>
+      <Sequence>
+        <Anim   AnimName="skill_guantongbingren_01"  Sound="1001001"/>
+        <Anim   AnimName="skill_guantongbingren_02"  Sound="1001001"/>
+        <LoopParallel Times="4">
+          <Anim   AnimName="skill_guantongbingren_03"  Sound="1001001"/>
+          <Clone>
+            <Effect Id="64040" LastTime="2.000"  Type="1" Bind="3"  Sound=""/>
+          </Clone>
+        </LoopParallel>
+        <Anim   AnimName="skill_guantongbingren_04"  Sound="1001001"/>
+      </Sequence>
+    </Parallel>
+  </Skill>
+
+  <Skill Id="5005707"  Name="末日陨落"  StateTime="3.001"  CD="4"  CastDistance="15" Pos="6">
+    <Sequence>
+      <Anim   AnimName="skill_moriyunluo_01"  Sound="1001001"/>
+      <Anim   AnimName="skill_moriyunluo_02"  Sound="1001001"/>
+      <LoopParallel Times="4">
+        <Anim   AnimName="skill_moriyunluo_03"  Sound="1001001"/>
+        <Clone>
+          <Effect Id="64039" LastTime="2.000"  Type="1" Bind="3"  Sound=""/>
+        </Clone>
+      </LoopParallel>
+      <Anim   AnimName="skill_moriyunluo_04"  Sound="1001001"/>
+    </Sequence>
+  </Skill>
+
+  
+</Actor>

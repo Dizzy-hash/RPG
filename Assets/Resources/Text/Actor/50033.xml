@@ -1,9 +1,0 @@
-﻿<Actor Id="50033" Name="沙漠强盗">
-
-  <Skill Id="5003301"  Name="普攻"  StateTime="1.267"  CD="0"  CastDistance="2.5"  Pos="0">
-      <Sequence>
-           <Anim   AnimName="attack_01"  Sound="1001001"/>
-     </Sequence>
- </Skill>
-
-</Actor>

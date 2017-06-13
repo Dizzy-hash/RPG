@@ -167,12 +167,6 @@ public class EditorTools : Editor
         EditorWindow.GetWindow<NLE.EDT.NSequencerWindow>().Show();
     }
 
-    [MenuItem("编辑器/打包")]
-    static void Build()
-    {
-        EditorResourceBuild.Build();
-    }
-
     [MenuItem("编辑器/建立行为树")]
     static void BuildBTTree()
     {

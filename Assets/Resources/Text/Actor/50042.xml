@@ -1,9 +1,0 @@
-﻿<Actor Id="50042" Name="石像怪">
-
-  <Skill Id="5004201"  Name="普攻"  StateTime="1.800" CD="0"  CastDistance="2.0" Pos="0">
-     <Sequence>
-         <Anim   AnimName="attack_01"  Sound="1001001"/>
-    </Sequence>
-  </Skill>
-
-</Actor>

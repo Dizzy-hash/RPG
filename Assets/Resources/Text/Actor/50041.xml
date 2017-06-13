@@ -1,9 +1,0 @@
-﻿<Actor Id="50041" Name="沙岛骑兵">
-
-  <Skill Id="5004101"  Name="普攻"  StateTime="1.667"  CD="0"  Pos="0"  CatDistance="2.5">
-     <Sequence>
-         <Anim   AnimName="attack_01"  Sound="1001001"/>
-    </Sequence>
-  </Skill>
-
-</Actor>
