@@ -56,6 +56,7 @@ namespace EDT
             BuildBundles();
         }
 
+        
         static void DelBundles()
         {
             if (Directory.Exists(Application.streamingAssetsPath + "/resourceassets"))
@@ -65,7 +66,8 @@ namespace EDT
             Directory.CreateDirectory(Application.streamingAssetsPath + "/resourceassets");
         }
 
-        static void DelBundleNames()
+        [MenuItem("BuildAssets/Clear")]
+        static public void DelBundleNames()
         {
             string[] bundles = AssetDatabase.GetAllAssetBundleNames();
             for (var i = 0; i < bundles.Length; i++)
@@ -107,7 +109,7 @@ namespace EDT
                                 bundle.AssetName = fileName;   
                                 bundle.AssetBundleName = fileName + ".unity3d";
                                 bundle.Path = assetPath;
-                                SetDepends(bundle.FilePath);
+                                SetDepends(bundle.FilePath , bundle.depends);
                             }
                             break;
                         case ".xml":
@@ -123,7 +125,7 @@ namespace EDT
                                 bundle.AssetName = fileName + extenName;
                                 bundle.AssetBundleName = fileName + ".assetbundle";
                                 bundle.Path = assetPath;
-                                SetDepends(bundle.FilePath);
+                                SetDepends(bundle.FilePath , bundle.depends);
                             }
                             break;
                         case ".mp3":
@@ -172,6 +174,12 @@ namespace EDT
                 child.SetAttribute("AssetBundleName", bundle.AssetBundleName);
                 child.SetAttribute("Path", bundle.Path);
                 child.SetAttribute("GUID", bundle.GUID);
+                for (int i = 0; i < bundle.depends.Count; i ++)
+                {
+                    XmlElement dp = doc.CreateElement("depends");
+                    child.AppendChild(dp);
+                    dp.SetAttribute("Depends" , bundle.depends[i]);
+                }
             }
 
             string refName = Application.streamingAssetsPath + "/Asset.xml";
@@ -189,7 +197,7 @@ namespace EDT
             }
         }
 
-        static void SetDepends(string filePath)
+        static void SetDepends(string filePath , List<string> depends)
         {
             string[] dps = AssetDatabase.GetDependencies(filePath);
             for (int i = 0; i < dps.Length; i++)
@@ -197,8 +205,9 @@ namespace EDT
                 if (dps[i] == filePath || dps[i].Contains(".cs")) continue;
                 AssetImporter importer = AssetImporter.GetAtPath(dps[i]);
                 string dpName = AssetDatabase.AssetPathToGUID(dps[i]);
+                if(!depends.Contains(dpName))depends.Add(dpName);
                 importer.assetBundleName = "resourceassets/alldependencies/" + dpName;
-                SetDepends(dps[i]);
+                SetDepends(dps[i] , depends);
             }
         }
 
