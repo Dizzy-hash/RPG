@@ -5,57 +5,51 @@ using UnityEngine.SceneManagement;
 
 public class ResourceManager
 {
-    public delegate void LoadComplete(GameObject o);
+    public delegate void LoadSceneComplete();
+    public delegate void LoadPrefabComplete(GameObject o);
+    public delegate void LoadSoundbComplete(AudioClip a);
+    public delegate void LoadConfigComplete(string str);
+    public delegate void LoadPictureComplete(Texture2D t);
 
-    public byte[] ReadByte(string fileName)
-    {
-        return System.IO.File.ReadAllBytes(VersionManager.GetConfigPath(fileName));
-    }
+    public delegate void LoadProgress(float p);
 
-    public string ReadText(string fileName)
+    IEnumerator LoadAssets(string strName , LoadProgress loadProgress , LoadSceneComplete loadComplete)
     {
-        return System.IO.File.ReadAllText(VersionManager.GetConfigPath(fileName));
-    }
-
-    public void LoadScene(string strName, LoadComplete callBack = null)
-    {
-      //  StartCoroutine(LoadAssets(strName, callBack, true));
-    }
-
-    public void LoadAsset(string strName, LoadComplete callBack)
-    {
-      //  StartCoroutine(LoadAssets(strName, callBack, false));
-    }
-
-    IEnumerator LoadAssets(string strName, LoadComplete callBack, bool isScene)
-    {
-        WWW www = WWW.LoadFromCacheOrDownload(VersionManager.GetResPath("AssetBundle"), 0);
+        WWW www = WWW.LoadFromCacheOrDownload(VersionManager.GetResPath("StreamingAssets"), 0);
         yield return www;
         List<AssetBundle> assetBundleList = new List<AssetBundle>();
         AssetBundle assetBundle = www.assetBundle;
         assetBundleList.Add(assetBundle);
         AssetBundleManifest abManifest = assetBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
-        foreach (var dependAsset in abManifest.GetAllDependencies(strName.ToLower()))
+        string[] assetDepends = abManifest.GetAllDependencies(strName.ToLower());
+        for(int i = 0; i < assetDepends.Length; i ++)
         {
-            WWW dependWWW = WWW.LoadFromCacheOrDownload(VersionManager.GetResPath(dependAsset), 0);
+            WWW dependWWW = WWW.LoadFromCacheOrDownload(VersionManager.GetResPath(assetDepends[i]), 0);
             yield return dependWWW;
             assetBundleList.Add(dependWWW.assetBundle);
+            if(loadProgress != null) loadProgress((i + 1) * 0.02f);
         }
 
         WWW asset = WWW.LoadFromCacheOrDownload(VersionManager.GetResPath(strName.ToLower()), 0);
+        while (!asset.isDone)
+        {
+            yield return null;
+            loadProgress(assetDepends.Length * 0.2f + asset.progress * 0.3f);
+        }
         yield return asset;
         AssetBundle assetAB = asset.assetBundle;
         assetBundleList.Add(assetAB);
-        if (isScene)
+        float p = assetDepends.Length * 0.2f + 0.3f;
+
+        AsyncOperation asyn = SceneManager.LoadSceneAsync(strName);
+        while (!asyn.isDone)
         {
-            SceneManager.LoadScene(strName);
-            if (callBack != null) callBack(null);
+            yield return null;
+            loadProgress(p + asyn.progress * (1 - p));
         }
-        else
-        {
-            GameObject go = assetAB.LoadAsset<GameObject>(strName);
-            if (callBack != null) callBack(GameObject.Instantiate(go));
-        }
+
+        if (loadComplete != null) loadComplete();
+
         foreach (var ab in assetBundleList)
         {
             if (ab != null)

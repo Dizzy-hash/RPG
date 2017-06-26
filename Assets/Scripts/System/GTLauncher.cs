@@ -62,7 +62,6 @@ public class GTLauncher : MonoBehaviour
         GTWindowManager.      Instance.Init();
         GTInputManager.       Instance.SetDontDestroyOnLoad(transform);
         GTWorld.              Instance.SetDontDestroyOnLoad(transform);
-        GTTouchEffect.        Instance.SetDontDestroyOnLoad(transform);
 
         GTTimerManager.       Instance.AddListener(1, SecondTick, 0);
         GTCtrlManager.        Instance.AddAllCtrls();

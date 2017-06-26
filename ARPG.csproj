@@ -570,7 +570,6 @@
     <Compile Include="Assets\Scripts\Common\Defines\GTAudioKey.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTDataKey.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTDefine.cs" />
-    <Compile Include="Assets\Scripts\Common\Defines\GTEffectKey.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTEnum.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTLayer.cs" />
     <Compile Include="Assets\Scripts\Common\Defines\GTPrefabKey.cs" />
@@ -811,7 +810,6 @@
     <Compile Include="Assets\Scripts\Res\GTResourceUnit.cs" />
     <Compile Include="Assets\Scripts\System\GTCtrlManager.cs" />
     <Compile Include="Assets\Scripts\System\GTLauncher.cs" />
-    <Compile Include="Assets\Scripts\System\GTTouchEffect.cs" />
     <Compile Include="Assets\Scripts\System\GTWorld.cs" />
     <Compile Include="Assets\Scripts\System\Game\GameBaseState.cs" />
     <Compile Include="Assets\Scripts\System\Game\GameBattleState.cs" />

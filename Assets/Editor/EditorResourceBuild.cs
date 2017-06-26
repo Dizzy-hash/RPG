@@ -11,6 +11,8 @@ namespace EDT
     public class EditorResourceBuild
     {
         static string[] assetsPath = new string[] {
+            "/ResourceAssets/Login/" , "*.unity",
+            "/ResourceAssets/Create/" , "*.unity",
             "/ResourceAssets/Config/" , "*.xml",
             "/ResourceAssets/Config/" , "*.txt",
             "/ResourceAssets/Curve/" , "*.prefab",
@@ -109,7 +111,7 @@ namespace EDT
                                 bundle.AssetName = fileName;   
                                 bundle.AssetBundleName = fileName + ".unity3d";
                                 bundle.Path = assetPath;
-                                SetDepends(bundle.FilePath , bundle.depends);
+                        //        SetDepends(bundle.FilePath , bundle.depends);
                             }
                             break;
                         case ".xml":
@@ -125,7 +127,7 @@ namespace EDT
                                 bundle.AssetName = fileName + extenName;
                                 bundle.AssetBundleName = fileName + ".assetbundle";
                                 bundle.Path = assetPath;
-                                SetDepends(bundle.FilePath , bundle.depends);
+                      //          SetDepends(bundle.FilePath , bundle.depends);
                             }
                             break;
                         case ".mp3":

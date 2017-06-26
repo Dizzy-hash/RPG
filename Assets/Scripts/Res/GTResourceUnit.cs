@@ -9,5 +9,6 @@ public class GTResourceUnit
     public string Path = string.Empty;
     public string GUID = string.Empty;
     public string FilePath = string.Empty;
+    public List<string> depends = new List<string>();
 }
 

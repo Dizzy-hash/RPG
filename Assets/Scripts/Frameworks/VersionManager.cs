@@ -49,19 +49,6 @@ public class VersionManager : GTMonoSingleton<VersionManager>
 	static public Dictionary<string , string> ServerResVersion = new Dictionary<string, string>();  //远程最新资源 版本 
 	static public Dictionary<string , string> UpdateResVersion = new Dictionary<string, string>();  //本次登录更新资源 版本 用于查找本地最新资源
 
-	static public string GetConfigPath(string filePath)
-	{
-		#if UNITY_STANDALONE_WIN || UNITY_EDITOR 
-		return Application.persistentDataPath + "/" + filePath;
-		#else
-		if(UpdateResVersion.ContainsKey(filePath) || LatestResVersion.ContainsKey(filePath) || LocalResVersion.ContainsKey(filePath))
-		{
-			return LatestResUrl + filePath;
-		}
-		return ServerResUrl + filePath;
-		#endif
-	}
-
 	static public string GetResPath(string filePath)
 	{
 		#if UNITY_STANDALONE_WIN || UNITY_EDITOR 
